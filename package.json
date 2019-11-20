@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/yortortle/Unit3Project/issues"
   },
-  "homepage": "https://github.com/yortortle/Unit3Project#readme"
+  "homepage": "https://github.com/yortortle/Unit3Project#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.12"
+  }
 }

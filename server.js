@@ -15,9 +15,13 @@ const session = require('express-session');
 //MIDDLEWARE
 /////////////////////
 // app.use(express.urlencoded({extended:false}));
-
+app.use(express.static('public'));
 app.use(express.json());
-
+app.use(session({
+    secret: "feedmeseymour", //some random string
+    resave: false,
+    saveUninitialized: false
+}));
 //////////////////////
 //CONTROLLERS
 ///////////////////
@@ -32,14 +36,17 @@ app.use(express.json());
 const mongoURI = host;
 
 // Connect to Mongo
-mongoose.connect( mongoURI, dbupdateobject );
+mongoose.connect('mongodb://localhost:27017/meancrud', { useNewUrlParser: true });
+mongoose.connection.once('open', ()=>{
+    console.log('connected to mongoose...');
+});
 
 // Connection Error/Success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', mongoURI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 db.on( 'open' , ()=>{
-  console.log('Connection made!');
+  console.log('Connection made to db!');
 });
 
 
@@ -54,5 +61,3 @@ db.on( 'open' , ()=>{
 //Listener
 /////////////////////
 app.listen(port, () => console.log(`listening on ${port}!`))
-
-app.use(express.static('public'));

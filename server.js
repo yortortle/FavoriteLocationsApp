@@ -9,7 +9,7 @@ const db = mongoose.connection;
 const moment = require('moment');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-require('dotenv').config();
+require("dotenv").config();
 
 /////////////////////
 //MIDDLEWARE
@@ -22,6 +22,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
 //////////////////////
 //CONTROLLERS
 ///////////////////

@@ -5,19 +5,25 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
 	<script src="/js/app.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="css/app.css">
-</head>
-<body ng-controller="MyController as ctrl">
-	<h1></h1>
-	<nav>
 
-	</nav>
-	<div class="container1">
-		<div ng-include="ctrl.includePath"></div>
+	</head>
+	<body ng-controller="MyController as ctrl">
+	<div class="container">
+		{{2+2}}
+		{{ctrl.test}}
+		<nav>
+
+		</nav>
+
+		<div ng-include="'partials/new.html'">
+
+		</div>
+			
+		<footer>
+
+		</footer>
 	</div>
 
-	<footer>
-
-	</footer>
 
 </body>
 </html>

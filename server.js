@@ -30,7 +30,13 @@ app.use(session({
 // app.use('/animalsapi', animalsControl);
 
 const locationsController = require("./controllers/locations.js");
-app.use("/locations", locationsController)
+app.use("/locations", locationsController);
+const userController = require('./controllers/users.js')
+app.use('/users', userController);
+
+const sessionsController = require('./controllers/sessions.js');
+app.use('/sessions', sessionsController);
+
 /////////////////////
 //DATABASE
 /////////////////////

@@ -5,7 +5,7 @@ const port = process.env.PORT || 5000
 require('dotenv').config();
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-const host = process.env.CLUSTER
+// const host = process.env.CLUSTER
 const dbupdateobject = { useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false , useCreateIndex: true};
 const moment = require('moment');
 const bcrypt = require('bcrypt');
@@ -28,22 +28,25 @@ app.use(session({
 // const animalsControl = require('./controllers/animals.js');
 // app.use('/animalsapi', animalsControl);
 
+const locationsController = require("./controllers/locations.js");
+app.use("/locations", locationsController)
 /////////////////////
 //DATABASE
 /////////////////////
 
 // Configuration
-const mongoURI = host;
+const MONGODB_URI = process.env.MONGODB_URI;
+const PORT = process.env.PORT;
 
 // Connect to Mongo
-mongoose.connect('mongodb://localhost:27017/meancrud', { useNewUrlParser: true });
-mongoose.connection.once('open', ()=>{
-    console.log('connected to mongoose...');
-});
+mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+
+// mongoose.connect('mongodb://localhost:27017/meancrud', { useNewUrlParser: true });
+// });
 
 // Connection Error/Success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', mongoURI));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 db.on( 'open' , ()=>{
   console.log('Connection made to db!');

@@ -1,4 +1,101 @@
 body{
-    background-color: red;
-    color: green;
+  font-family: sans-serif;
+}
+
+/* ==============
+=== Display items styling
+================= */
+.displayContainer{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.displayItem {
+    position:relative;
+    width:300px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px lavender;
+    margin:15px;
+}
+
+.displayImg{
+    opacity:1;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    z-index: -1;
+    transition: .5s ease;
+}
+
+.displayItem:hover .displayImg{
+    opacity: 0.3;
+}
+
+.displayItem h3{
+    margin:0;
+}
+
+.displayLikesAndFavorite{
+    background-color: rgba(255,240,245,.7);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    transition: .5s ease;
+}
+
+.displayItem:hover .displayLikesAndFavorite{
+    background-color: rgba(255,240,245,0);
+}
+
+.displayLikesAndFavorite img{
+    height: 25px;
+}
+
+.displayLikesAndFavorite p{
+    margin:10px;
+}
+
+/* ==============
+=== New Item Form Styling
+================= */
+.inputFormContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px;
+    background-image: url('imgs/footpath.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position: right;
+}
+
+.inputFormContainer input, .inputFormContainer textarea{
+    width:70%;
+    background-color: rgba(192,192,192,.5)
+}
+
+/* ==============
+=== Edit Item Form Styling
+================= */
+.editFormContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px;
+    background-image: url('imgs/compass.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+    background-size: auto;
+}
+
+.editFormContainer input, .editFormContainer textarea{
+    width:70%;
+    background-color: rgba(192,192,192,.5)
 }

@@ -1,15 +1,15 @@
 const express = require('express')
 const app = express();
 const router = express.Router();
-const port = process.env.PORT || 5000
-require('dotenv').config();
+// const PORT = process.env.PORT;
+// if (app.get('env') == 'development'){ require('dotenv').config(); }
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 // const host = process.env.CLUSTER
-const dbupdateobject = { useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false , useCreateIndex: true};
 const moment = require('moment');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+require("dotenv").config();
 
 /////////////////////
 //MIDDLEWARE
@@ -22,6 +22,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
 //////////////////////
 //CONTROLLERS
 ///////////////////
@@ -63,4 +64,4 @@ db.on( 'open' , ()=>{
 /////////////////////
 //Listener
 /////////////////////
-app.listen(port, () => console.log(`listening on ${port}!`))
+app.listen(PORT, () => console.log( 'Listening on port:', PORT));

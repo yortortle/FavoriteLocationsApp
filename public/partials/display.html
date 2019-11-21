@@ -1,8 +1,8 @@
 
         <div class="displayContainer">
             <!-- ng-repeat will go in the div below -->
-            <div ng-repeat="location in ctrl.location"  class="displayItem" >
-                <img class="displayImg" ng-src="{{location.image}}" alt="">
+            <div ng-repeat ="location in ctrl.location" ng-click="ctrl.changeInclude('show');ctrl.showOne(location._id)" class="displayItem" >
+                <img  class="displayImg" ng-src="{{location.image}}" alt="">
 
                 <div class="displayLikesAndFavorite">
                     <p><img src="../css/imgs/thumbsUp.png" alt="Likes">{{location.likes}}</p>

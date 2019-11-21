@@ -12,10 +12,9 @@
                 </div>
                 <div class="form-group">
                     <label for="newLocationDescription">Give us some details about this location!</label>
-                    <input ng-model="ctrl.description" id="newLocationDescription" class="form-control" type="text" placeholder="Image url" ng-model="ctrl.description" placeholder="Why do you love this location?">
 
                     <!-- Thor, It seems like textarea doesn't work with ng-model. I'm used text area for now. I did research and others have this same issue, ng-model working fine for input text boxes -->
-                    <!-- <textarea ng-model="ctrl.description" id="newLocationDescription" class="form-control" rows="8" cols="80" placeholder="Why do you love this location?"></textarea> -->
+                    <textarea ng-model="ctrl.description" id="newLocationDescription" class="form-control" rows="8" cols="80" placeholder="Why do you love this location?"></textarea>
                 </div>
                     <button type="submit" >Add Location</button>
             </form>

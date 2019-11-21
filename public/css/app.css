@@ -62,6 +62,9 @@ body{
     margin:10px;
 }
 
+.form-group input{
+    overflow-wrap: break-word;
+}
 /* ==============
 === New Item Form Styling
 ================= */
@@ -74,7 +77,10 @@ body{
     background-size: contain;
     background-repeat:no-repeat;
     background-position: right;
+    max-width: 800px;
 }
+
+
 
 .inputFormContainer input, .inputFormContainer textarea{
     width:70%;

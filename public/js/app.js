@@ -5,13 +5,14 @@ app.controller("MyController", ["$http", function($http){
   const controller = this;
 
   //partials include and function to change partials
-  this.includePath = "partials/new.html"
+  this.includePath = "partials/display.html"
   this.changeInclude = (path) => {
   	this.includePath = 'partials/'+ path +'.html';
   }
 
   //get route
   this.getLocations = function(){
+      this.includePath = "partials/display.html"
     $http({
         method:'GET',
         url: '/locations/'
@@ -26,11 +27,23 @@ app.controller("MyController", ["$http", function($http){
 
   this.getLocations();
 
+  this.showOne = function(id){
+      $http({
+          method:'GET',
+          url:'/locations/'+ id,
+      }).then(function(response){
+          controller.oneLocation = response.data
+          console.log(response);
+      }, function(err){
+          console.log(err);
+      })
+  }
+
   //delete route
-  this.deleteLocation = function(bookmark){
+  this.deleteLocation = function(id){
     $http({
       method: "DELETE",
-      url: "/locations/" + bookmark._id
+      url: "/locations/" + id
     }).then(
       function(response){
         console.log(response);
@@ -43,19 +56,20 @@ app.controller("MyController", ["$http", function($http){
   }
 
   //edit route
-  this.editLocation = function(bookmark){
+  this.editLocation = function(id){
     $http({
       method: "PUT",
-      url: "/locations/" + bookmark._id,
+      url: "/locations/" + id,
       data: {
-        name: this.updatedName,
-        image: this.updatedImage,
-        description: this.updatedDescription,
-        likes: this.updatedLikes
+        name: this.oneLocation.name,
+        image: this.oneLocation.image,
+        description: this.oneLocation.description,
+        likes: this.oneLocation.likes
       }
     }).then(
       function(response){
         controller.getLocations()
+        
         // document.getElementById("editform").reset();
         // controller.url = null;
       },
@@ -77,6 +91,10 @@ app.controller("MyController", ["$http", function($http){
           }
       }).then(function(response){
           controller.getLocations();
+          controller.name = ""
+          controller.image = ""
+          controller.description = ""
+          controller.likes = ""
           // document.getElementById("createForm").reset();
       }, function(){
           console.log('error');

@@ -7,22 +7,18 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/app.css">
 
-	</head>
-	<body ng-controller="MyController as ctrl">
+</head>
+<body ng-controller="MyController as ctrl">
+	<nav class="container-fluid">
+		<button ng-if='ctrl.includePath !== "partials/new.html"' type="button" ng-click="ctrl.changeInclude('new')">Add Location</button>
+	</nav>
 	<div class="container">
-		{{2+2}}
-		{{ctrl.test}}
-		<nav>
 
-		</nav>
 
-		<div ng-include="'partials/new.html'"></div>
+		<!-- <div ng-include="'partials/new.html'"></div>
 		<div ng-include="'partials/edit.html'"></div>
-		<div ng-include="'partials/show.html'"></div>
-
-		<div class="container">
-			<div ng-include="'partials/display.html'"></div>
-		</div>
+		<div ng-include="'partials/show.html'"></div> -->
+		<div ng-include="ctrl.includePath"></div>
 
 		<footer>
 

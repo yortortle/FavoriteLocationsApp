@@ -4,20 +4,31 @@
 	<title>World Locations</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
 	<script src="/js/app.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/app.css">
-</head>
-<body ng-controller="MyController as ctrl">
-	<h1>test?</h1>
-	{{2+2}}
 
-	{{ctrl.test}}
-	<nav>
+	</head>
+	<body ng-controller="MyController as ctrl">
+	<div class="container">
+		{{2+2}}
+		{{ctrl.test}}
+		<nav>
 
-	</nav>
+		</nav>
 
-	<footer>
+		<div ng-include="'partials/new.html'"></div>
+		<div ng-include="'partials/edit.html'"></div>
+		<div ng-include="'partials/show.html'"></div>
 
-	</footer>
+		<div class="container">
+			<div ng-include="'partials/display.html'"></div>
+		</div>
+
+		<footer>
+
+		</footer>
+	</div>
+
 
 </body>
 </html>

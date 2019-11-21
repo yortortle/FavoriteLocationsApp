@@ -28,6 +28,8 @@ app.use(session({
 // const animalsControl = require('./controllers/animals.js');
 // app.use('/animalsapi', animalsControl);
 
+const locationsController = require("./controllers/locations.js");
+app.use("/locations", locationsController)
 /////////////////////
 //DATABASE
 /////////////////////
@@ -40,8 +42,6 @@ const PORT = process.env.PORT;
 mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 // mongoose.connect('mongodb://localhost:27017/meancrud', { useNewUrlParser: true });
-// mongoose.connection.once('open', ()=>{
-//     console.log('connected to mongoose...');
 // });
 
 // Connection Error/Success

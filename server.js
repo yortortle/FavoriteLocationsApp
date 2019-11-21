@@ -2,15 +2,14 @@ const express = require('express')
 const app = express();
 const router = express.Router();
 // const PORT = process.env.PORT;
-require('dotenv').config();
 // if (app.get('env') == 'development'){ require('dotenv').config(); }
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 // const host = process.env.CLUSTER
-const dbupdateobject = { useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false , useCreateIndex: true};
 const moment = require('moment');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+require('dotenv').config();
 
 /////////////////////
 //MIDDLEWARE

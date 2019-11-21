@@ -61,3 +61,41 @@ body{
 .displayLikesAndFavorite p{
     margin:10px;
 }
+
+/* ==============
+=== New Item Form Styling
+================= */
+.inputFormContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px;
+    background-image: url('imgs/footpath.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position: right;
+}
+
+.inputFormContainer input, .inputFormContainer textarea{
+    width:70%;
+    background-color: rgba(192,192,192,.5)
+}
+
+/* ==============
+=== Edit Item Form Styling
+================= */
+.editFormContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px;
+    background-image: url('imgs/compass.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+    background-size: auto;
+}
+
+.editFormContainer input, .editFormContainer textarea{
+    width:70%;
+    background-color: rgba(192,192,192,.5)
+}

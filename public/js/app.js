@@ -2,6 +2,13 @@ const app = angular.module("locationsApp", []);
 
 app.controller("MyController", ["$http", function($http){
   this.test="test";
+  const controller = this;
+
+  //partials include and function to change partials
+  this.includePath = "partials/new.html"
+  this.changeInclude = (path) => {
+  	this.includePath = 'partials/'+ path +'.html';
+  }
 
   //get route
   this.getLocations = function(){
@@ -20,7 +27,7 @@ app.controller("MyController", ["$http", function($http){
   this.getLocations();
 
   //delete route
-  this.deleteLocations = function(bookmark){
+  this.deleteLocation = function(bookmark){
     $http({
       method: "DELETE",
       url: "/locations/" + bookmark._id
@@ -36,7 +43,7 @@ app.controller("MyController", ["$http", function($http){
   }
 
   //edit route
-  this.editLocations = function(bookmark){
+  this.editLocation = function(bookmark){
     $http({
       method: "PUT",
       url: "/locations/" + bookmark._id,
@@ -58,14 +65,14 @@ app.controller("MyController", ["$http", function($http){
     )
   }
 
-  this.createLocations = function(){
+  this.createLocation = function(){
       $http({
           method:'POST',
           url: '/locations',
           data: {
               name: this.name,
               image: this.image,
-              descprition: this.description,
+              description: this.description,
               likes: this.likes
           }
       }).then(function(response){

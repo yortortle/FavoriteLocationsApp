@@ -12,6 +12,14 @@ router.get('/', (req,res) => {
 });
 
 //===============
+//=== Show One Location
+//===============
+router.get('/:id', (req, res) => {
+    Locations.findById(req.params.id, (err,foundLocation) => {
+        res.json(foundLocation)
+    })
+})
+//===============
 //=== Create New Location
 //===============
 router.post('/', (req,res) => {

@@ -84,6 +84,27 @@ video {
     font-size: 12px;
 }
 
+/*================
+===h2 style
+==================*/
+h2 {
+    color: #6F8C5F;
+    text-shadow: 2px 2px black;
+}
+/*====================
+===New location style
+======================*/
+.label1 {
+    color: #6F8C5F;
+    text-shadow: 1px 1px black;
+}
+
+/*=========================
+===Login/signup input style
+===========================*/
+.input1 {
+    margin:1%;
+}
 
 
 

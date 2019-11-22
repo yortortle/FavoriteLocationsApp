@@ -168,9 +168,29 @@ app.controller("MyController", ["$http", function($http){
     })
   }
 
+//Stay logged in on refresh.
   $http({
       method:'GET',
-      url:
+      url:'/sessions'
+  }).then(function(response){
+      if (response.data.currentUser) {
+          controller.loggedInUsername = response.data.currentUser.username
+          // console.log(controller.loggedInUsername);
+      }
+
   })
+
+  this.likes = function(location){
+      // console.log(location.likes);
+      location.likes = Number(location.likes) + 1
+
+      $http({
+          method:'PUT',
+          url:'/locations/' + location._id,
+          data: location
+      }).then(function(response){
+          controller.getLocations()
+      })
+  }
 
 }]);

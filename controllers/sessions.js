@@ -4,7 +4,7 @@ const User = require('../models/users.js');
 const bcrypt = require('bcrypt');
 
 router.get('/', (req,res) => {
-    res.json(req.session.username)
+    res.json(req.session);
 })
 
 router.delete('/', (req, res)=>{

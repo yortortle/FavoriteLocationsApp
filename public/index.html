@@ -6,6 +6,7 @@
 	<script src="/js/app.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/app.css">
+	<link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
 </head>
 <body ng-controller="MyController as ctrl">
@@ -21,10 +22,15 @@
 	</nav>
 
 	<div ng-if='ctrl.loggedInUsername === null' class="banner">
-		<button type="button" ng-click="ctrl.changeInclude('user')">Sign Up</button>
-		<button  type="button" ng-click="ctrl.changeInclude('login')">Log In</button>
+		<div class="container-h1">
+			<h1>World Locations</h1>
+		</div>
+		<div class="container-button">
+			<button class="btn btn-primary" type="button" ng-click="ctrl.changeInclude('user')">Sign Up</button>
+			<button  class="btn btn-primary" type="button" ng-click="ctrl.changeInclude('login')">Log In</button>
+		</div>
 	<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="https://media.giphy.com/media/39hmVtQ6THxgPU7Uh9/giphy.mp4" type="video/mp4">
+        <source src="https://media.giphy.com/media/39hmVtQ6THxgPU7Uh9/giphy.mp4">
     </video>
     </div>
 

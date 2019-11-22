@@ -5,13 +5,14 @@ app.controller("MyController", ["$http", function($http){
   const controller = this;
 
   //partials include and function to change partials
-  this.includePath = "partials/new.html"
+  this.includePath = "partials/display.html"
   this.changeInclude = (path) => {
   	this.includePath = 'partials/'+ path +'.html';
   }
 
   //get route
   this.getLocations = function(){
+      this.includePath = "partials/display.html"
     $http({
         method:'GET',
         url: '/locations/'
@@ -26,11 +27,23 @@ app.controller("MyController", ["$http", function($http){
 
   this.getLocations();
 
+  this.showOne = function(id){
+      $http({
+          method:'GET',
+          url:'/locations/'+ id,
+      }).then(function(response){
+          controller.oneLocation = response.data
+          console.log(response);
+      }, function(err){
+          console.log(err);
+      })
+  }
+
   //delete route
-  this.deleteLocation = function(bookmark){
+  this.deleteLocation = function(id){
     $http({
       method: "DELETE",
-      url: "/locations/" + bookmark._id
+      url: "/locations/" + id
     }).then(
       function(response){
         console.log(response);
@@ -43,19 +56,20 @@ app.controller("MyController", ["$http", function($http){
   }
 
   //edit route
-  this.editLocation = function(bookmark){
+  this.editLocation = function(id){
     $http({
       method: "PUT",
-      url: "/locations/" + bookmark._id,
+      url: "/locations/" + id,
       data: {
-        name: this.updatedName,
-        image: this.updatedImage,
-        description: this.updatedDescription,
-        likes: this.updatedLikes
+        name: this.oneLocation.name,
+        image: this.oneLocation.image,
+        description: this.oneLocation.description,
+        likes: this.oneLocation.likes
       }
     }).then(
       function(response){
         controller.getLocations()
+
         // document.getElementById("editform").reset();
         // controller.url = null;
       },
@@ -65,6 +79,7 @@ app.controller("MyController", ["$http", function($http){
     )
   }
 
+  //new location
   this.createLocation = function(){
       $http({
           method:'POST',
@@ -77,10 +92,84 @@ app.controller("MyController", ["$http", function($http){
           }
       }).then(function(response){
           controller.getLocations();
+          controller.name = ""
+          controller.image = ""
+          controller.description = ""
+          controller.likes = ""
           // document.getElementById("createForm").reset();
       }, function(){
           console.log('error');
       });
   }
 
+  //new user
+  this.createUser = function(){
+    $http({
+      method: "POST",
+      url: "/users",
+      data: {
+        username: this.username,
+        password: this.password
+      }
+    }).then(response => {
+      console.log(response);
+      console.log("hi");
+      controller.changeInclude('display')
+      controller.username = null;
+      controller.password = null;
+    }, function(){
+      console.log("error");
+    })
+  }
+
+  //log in to user
+  this.logIn = function(){
+      $http({
+          method:'POST',
+          url: '/sessions',
+          data: {
+              username: this.username,
+              password: this.password
+          }
+      }).then(function(response){
+          console.log(response);
+          controller.displayApp();
+          controller.changeInclude('display')
+          controller.username = null;
+          controller.password = null;
+      }, function(){
+          console.log('error');
+      });
+  }
+
+  //display user
+  this.displayApp = function(){
+      $http({
+          method:'GET',
+          url: '/sessionUser'
+      }).then(function(response){
+          controller.loggedInUsername = response.data.username;
+          console.log(response);
+      }, function(){
+          console.log('error');
+      });
+  }
+
+  //log out
+  this.logOut = function(){
+    $http({
+      method: "DELETE",
+      url:"/sessions"
+    }).then(function(response){
+      console.log(response);
+      controller.loggedInUsername = null;
+    }, function(error){
+      console.log(error);
+    })
+  }
+
+
 }]);
+
+
+

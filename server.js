@@ -23,6 +23,19 @@ app.use(session({
     saveUninitialized: false
 }));
 
+//route for sessionUsers
+app.get('/sessionUser', (req, res)=>{ //change /app to /sessionUser
+    if(req.session.currentUser){
+        res.json(req.session.currentUser);
+    } else {
+        res.status(401).json({ //status 401 is specifically for when the user needs to log in
+            status:401,
+            message:'not logged in'
+        });
+    }
+});
+
+
 //////////////////////
 //CONTROLLERS
 ///////////////////
@@ -30,7 +43,13 @@ app.use(session({
 // app.use('/animalsapi', animalsControl);
 
 const locationsController = require("./controllers/locations.js");
-app.use("/locations", locationsController)
+app.use("/locations", locationsController);
+const userController = require('./controllers/users.js')
+app.use('/users', userController);
+
+const sessionsController = require('./controllers/sessions.js');
+app.use('/sessions', sessionsController);
+
 /////////////////////
 //DATABASE
 /////////////////////

@@ -1,14 +1,4 @@
-<!-- Remove this html stuff, only here for testing purposes -->
-<!-- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/app.css">
-    </head>
-    <body> -->
-<!-- Delete everything above this (and don't forget the bottom of the page) -->
+
         <div class="inputFormContainer">
             <form ng-submit="ctrl.createLocation()">
                 <div class="form-group">
@@ -22,14 +12,12 @@
                 </div>
                 <div class="form-group">
                     <label for="newLocationDescription">Give us some details about this location!</label>
-                    <input ng-model="ctrl.description" id="newLocationDescription" class="form-control" type="text" placeholder="Image url" ng-model="ctrl.description" placeholder="Why do you love this location?">
 
                     <!-- Thor, It seems like textarea doesn't work with ng-model. I'm used text area for now. I did research and others have this same issue, ng-model working fine for input text boxes -->
-                    <!-- <textarea ng-model="ctrl.description" id="newLocationDescription" class="form-control" rows="8" cols="80" placeholder="Why do you love this location?"></textarea> -->
+                    <textarea ng-model="ctrl.description" id="newLocationDescription" class="form-control" rows="8" cols="80" placeholder="Why do you love this location?"></textarea>
                 </div>
-                    <button type="submit" >Add Location</button>
+                    <button type="submit">Add Location</button>
+                    <button type="button" ng-click='ctrl.changeInclude("display")'>Back</button>
             </form>
+
         </div>
-<!-- Delete everything below this -->
-    </body>
-</html>

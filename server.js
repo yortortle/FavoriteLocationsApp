@@ -23,6 +23,19 @@ app.use(session({
     saveUninitialized: false
 }));
 
+//route for sessionUsers
+app.get('/sessionUser', (req, res)=>{ //change /app to /sessionUser
+    if(req.session.currentUser){
+        res.json(req.session.currentUser);
+    } else {
+        res.status(401).json({ //status 401 is specifically for when the user needs to log in
+            status:401,
+            message:'not logged in'
+        });
+    }
+});
+
+
 //////////////////////
 //CONTROLLERS
 ///////////////////

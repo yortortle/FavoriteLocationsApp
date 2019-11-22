@@ -1,7 +1,10 @@
-<form ng-submit="ctrl.createUser()">
-        <h2>Create User</h2>
-        {{ctrl.username}} - {{ctrl.password}}
-        <input ng-model="ctrl.username" type="text" name="" value="">
-        <input ng-model="ctrl.password" type="text" name="" value="">
-        <input type="submit" name="" value="Create User">
-</form>
+
+<div class="userdiv">
+  <form class="userform" ng-submit="ctrl.createUser()">
+          <h2>Create User</h2>
+          Username: <input ng-model="ctrl.username" type="text" name="" value=""><br/>
+          Password: <input ng-model="ctrl.password" type="password" name="" value=""><br>
+          <input id="userbutton" class="buttons" type="submit" name="" value="Create User">
+          <button type="button" ng-click="ctrl.changeInclude('display')" name="button">return</button>
+  </form>
+</div>

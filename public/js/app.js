@@ -3,7 +3,7 @@ const app = angular.module("locationsApp", []);
 app.controller("MyController", ["$http", function($http){
   this.test="test";
   const controller = this;
-
+  this.loggedInUsername = null;
   //partials include and function to change partials
   this.includePath = "partials/display.html"
   this.changeInclude = (path) => {
@@ -17,9 +17,9 @@ app.controller("MyController", ["$http", function($http){
         method:'GET',
         url: '/locations/'
     }).then(function(response){
-        console.log(response);
+        // console.log(response);
         controller.location = response.data;
-        console.log(controller.bookmarkArray);
+        // console.log(controller.bookmarkArray);
     }, function(){
         console.log('error');
     });
@@ -33,7 +33,7 @@ app.controller("MyController", ["$http", function($http){
           url:'/locations/'+ id,
       }).then(function(response){
           controller.oneLocation = response.data
-          console.log(response);
+          // console.log(response);
       }, function(err){
           console.log(err);
       })
@@ -113,7 +113,8 @@ app.controller("MyController", ["$http", function($http){
       }
     }).then(response => {
       console.log(response);
-      console.log("hi");
+      // console.log("hi");
+      controller.displayApp()
       controller.changeInclude('display')
       controller.username = null;
       controller.password = null;

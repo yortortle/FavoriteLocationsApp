@@ -9,31 +9,25 @@
 
 </head>
 <body ng-controller="MyController as ctrl">
-	<div class="banner">
-		<button ng-if='ctrl.includePath === "partials/display.html"' type="button" ng-click="ctrl.changeInclude('user')">Sign Up</button>
-		<button ng-if='ctrl.includePath === "partials/display.html"' type="button" ng-click="ctrl.changeInclude('login')">Log In</button>
+	<nav class="container-fluid" ng-if='ctrl.loggedInUsername !== null'>
+		<h1>World Locations</h1>
+		<button ng-if='ctrl.includePath === "partials/display.html"' type="button" ng-click="ctrl.changeInclude('new')" class="btn btn-outline-light">+ Add Location</button>
+		<div class="navUserInfo">
+			<p class = "loggedin" ng-if="ctrl.loggedInUsername">
+			        Welcome, {{ctrl.loggedInUsername}}!
+			</p>
+			<span ng-include="'partials/logoutbutton.html'"></span>
+		</div>
+	</nav>
+
+	<div ng-if='ctrl.loggedInUsername === null' class="banner">
+		<button type="button" ng-click="ctrl.changeInclude('user')">Sign Up</button>
+		<button  type="button" ng-click="ctrl.changeInclude('login')">Log In</button>
 	<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
         <source src="https://media.giphy.com/media/39hmVtQ6THxgPU7Uh9/giphy.mp4" type="video/mp4">
     </video>
     </div>
-	<div class="" ng-if='ctrl.includePath === "partials/display.html"' ng-include="'partials/loggedin.html'">
 
-	</div>
-
-	<nav class="container-fluid">
-
-	</nav>
-
-	<nav class="container-fluid">
-
-		<div class="" ng-if='ctrl.includePath === "partials/display.html"' ng-include="'partials/logoutbutton.html'">
-
-		</div>
-	</nav>
-
-	<nav class="container-fluid">
-		<button ng-if='ctrl.includePath === "partials/display.html"' type="button" ng-click="ctrl.changeInclude('new')">Add Location</button>
-	</nav>
 	<div class="container">
 
 

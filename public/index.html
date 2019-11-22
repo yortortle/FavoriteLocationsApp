@@ -9,8 +9,23 @@
 
 </head>
 <body ng-controller="MyController as ctrl">
+	<div class="" ng-if='ctrl.includePath === "partials/display.html"' ng-include="'partials/loggedin.html'">
+
+	</div>
+
 	<nav class="container-fluid">
-		<button ng-if='ctrl.includePath !== "partials/new.html"' type="button" ng-click="ctrl.changeInclude('new')">Add Location</button>
+		<button ng-if='ctrl.includePath === "partials/display.html"' type="button" ng-click="ctrl.changeInclude('user')">Sign Up</button>
+	</nav>
+	
+	<nav class="container-fluid">
+		<button ng-if='ctrl.includePath === "partials/display.html"' type="button" ng-click="ctrl.changeInclude('login')">Log In</button>
+		<div class="" ng-if='ctrl.includePath === "partials/display.html"' ng-include="'partials/logoutbutton.html'">
+
+		</div>
+	</nav>
+
+	<nav class="container-fluid">
+		<button ng-if='ctrl.includePath === "partials/display.html"' type="button" ng-click="ctrl.changeInclude('new')">Add Location</button>
 	</nav>
 	<div class="container">
 

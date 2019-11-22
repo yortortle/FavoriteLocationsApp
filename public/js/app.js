@@ -69,7 +69,7 @@ app.controller("MyController", ["$http", function($http){
     }).then(
       function(response){
         controller.getLocations()
-        
+
         // document.getElementById("editform").reset();
         // controller.url = null;
       },
@@ -79,6 +79,7 @@ app.controller("MyController", ["$http", function($http){
     )
   }
 
+  //new location
   this.createLocation = function(){
       $http({
           method:'POST',
@@ -100,6 +101,73 @@ app.controller("MyController", ["$http", function($http){
           console.log('error');
       });
   }
+
+  //new user
+  this.createUser = function(){
+    $http({
+      method: "POST",
+      url: "/users",
+      data: {
+        username: this.username,
+        password: this.password
+      }
+    }).then(response => {
+      console.log(response);
+      console.log("hi");
+      controller.changeInclude('display')
+      controller.username = null;
+      controller.password = null;
+    }, function(){
+      console.log("error");
+    })
+  }
+
+  //log in to user
+  this.logIn = function(){
+      $http({
+          method:'POST',
+          url: '/sessions',
+          data: {
+              username: this.username,
+              password: this.password
+          }
+      }).then(function(response){
+          console.log(response);
+          controller.displayApp();
+          controller.changeInclude('display')
+          controller.username = null;
+          controller.password = null;
+      }, function(){
+          console.log('error');
+      });
+  }
+
+  //display user
+  this.displayApp = function(){
+      $http({
+          method:'GET',
+          url: '/sessionUser'
+      }).then(function(response){
+          controller.loggedInUsername = response.data.username;
+          console.log(response);
+      }, function(){
+          console.log('error');
+      });
+  }
+
+  //log out
+  this.logOut = function(){
+    $http({
+      method: "DELETE",
+      url:"/sessions"
+    }).then(function(response){
+      console.log(response);
+      controller.loggedInUsername = null;
+    }, function(error){
+      console.log(error);
+    })
+  }
+
 
 }]);
 

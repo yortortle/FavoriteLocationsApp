@@ -193,15 +193,16 @@ app.controller("MyController", ["$http", function($http){
   //         controller.getLocations()
   //     })
   // }
-////////
-this.likes = function(location,like,love){
-    // console.log(location.likes);
-    let userFound = false
-    let liked = like
-    let loved = love
+//add likes to a location
+this.likes = function(location, button){
 
+    let userFound = false
+    let liked = false
+    let loved = false
+
+    //if user clicks without logging in nothing will happen. This way we can keep the icon there to indicate these are the likes.
     if (this.loggedInUsername === null ) {
-        console.log('sign in first');
+
         return
     }
     if (location.likedAndLoved.length > 0) {
@@ -212,36 +213,62 @@ this.likes = function(location,like,love){
             if(location.likedAndLoved[i].username === user){
                 const userLikeInfo = location.likedAndLoved[i]
                 userFound = true;
-                if(userLikeInfo.liked === true){
-                    location.likes = Number(location.likes) - 1
-                }else{
-                    location.likes = Number(location.likes) + 1
+                liked = userLikeInfo.liked
+                loved = userLikeInfo.loved
+
+                if (button === 'like') {
+                    //if user has already liked this then clicking again subtracts their like.
+                    if(liked === true){
+                        location.likes = Number(location.likes) - 1
+                        userLikeInfo.liked = false
+                    }else{
+                    //if user does not like the location then this will add a like .
+                        location.likes = Number(location.likes) + 1
+                        userLikeInfo.liked = true
+                    }
+                }else if (button === 'love') {
+                    //the if statement probably isn't necessary, but I'm throwing it in for understanding why this part should run.
+                    if(loved === true){
+                        userLikeInfo.loved = false
+                    }else{
+                        userLikeInfo.loved = true
+                    }
                 }
-                //stop the loop
+
+                //stop the loop to prevent it from continuing through the loop now that we found what we wanted.
                 break
             }
         }
     }
 
-    console.log('loopstopped');
+
     //if user is not found then push the new user information to the location object.
     if (userFound === false) {
-        location.likedAndLoved.push({
-            username:this.loggedInUsername,
-            liked:liked,
-            loved:loved
-        })
-    }else{
+        if (button === 'like') {
+            location.likes = Number(location.likes) + 1
+            location.likedAndLoved.push({
+                username:this.loggedInUsername,
+                liked:true,
+                loved: false
+            })
+        }else if (button === 'love') {
+            location.likedAndLoved.push({
+                username:this.loggedInUsername,
+                liked:false,
+                loved: true
+            })
+        }
 
     }
-
-    //
-    // $http({
-    //     method:'PUT',
-    //     url:'/locations/' + location._id,
-    //     data: location
-    // }).then(function(response){
-    //     controller.getLocations()
-    // })
+    //update with new like information
+    $http({
+        method:'PUT',
+        url:'/locations/' + location._id,
+        data: location
+    }).then(function(response){
+        controller.getLocations()
+    })
 }
+
+
 }]);

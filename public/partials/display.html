@@ -5,9 +5,9 @@
                 <img  class="displayImg" ng-src="{{location.image}}" alt="">
 
                 <div class="displayLikesAndFavorite">
-                    <p class='likeLove' ng-click='$event.stopPropagation(); ctrl.likes(location,true,false)'><img src="../css/imgs/thumbsUp.png" alt="Likes">{{location.likes}}</p>
+                    <p class='likeLove' ng-click='$event.stopPropagation(); ctrl.likes(location, "like")'><img src="../css/imgs/thumbsUp.png" alt="Likes">{{location.likes}}</p>
                     <h3>{{location.name}}</h3>
-                    <p class='likeLove'><img src="../css/imgs/favorite.png" alt="favorite"></p>
+                    <p ng-click='$event.stopPropagation(); ctrl.likes(location, "love")' class='likeLove'><img src="../css/imgs/favorite.png" alt="favorite"></p>
 
                 </div>
 

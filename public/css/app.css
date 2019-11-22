@@ -1,6 +1,35 @@
 body{
   font-family: sans-serif;
+  background-image: url('imgs/backgroundTravel.png');
+  background-size: contain;
+  background-repeat: repeat;
+  background-color: rgba(223,213,174,.7);
 }
+
+.container{
+    margin-top: 30px;
+}
+
+/*====================
+=== nav bar
+======================*/
+nav{
+    background-color: #6F8C5F;
+    min-height: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.navUserInfo{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+}
+
 
 /*====================
 ===video for banner
@@ -38,6 +67,8 @@ video {
 .displayContainer{
     display: flex;
     flex-flow: row wrap;
+    background-color: rgba(216,191,216,.8);
+    border-radius: 10px;
 }
 
 .displayItem {
@@ -49,8 +80,9 @@ video {
     flex-direction: column;
     justify-content: flex-end;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px lavender;
+    box-shadow: 2px 2px 3px plum;
     margin:15px;
+    background-color: white;
 }
 
 .displayImg{
@@ -59,7 +91,7 @@ video {
     top:0px;
     left:0px;
     width:100%;
-    z-index: -1;
+
     transition: .5s ease;
 }
 
@@ -78,6 +110,7 @@ video {
     justify-content: space-between;
     align-items: center;
     transition: .5s ease;
+    z-index: 1;
 }
 
 .displayItem:hover .displayLikesAndFavorite{
@@ -86,6 +119,7 @@ video {
 
 .displayLikesAndFavorite img{
     height: 25px;
+    z-index: 2;
 }
 
 .displayLikesAndFavorite p{
@@ -134,4 +168,18 @@ video {
 .editFormContainer input, .editFormContainer textarea{
     width:70%;
     background-color: rgba(192,192,192,.5)
+}
+
+/* ==============
+=== Show one item styling
+================= */
+.locationImg{
+    width:100%;
+    border-radius: 10px;
+}
+.showDescription{
+    background-color: #FFFAFF;
+    margin: 10px 0;
+    border-radius: 10px;
+    padding:15px;
 }

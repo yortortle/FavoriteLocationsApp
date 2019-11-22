@@ -181,17 +181,67 @@ app.controller("MyController", ["$http", function($http){
 
   })
 
-  this.likes = function(location){
-      // console.log(location.likes);
-      location.likes = Number(location.likes) + 1
+  // this.likes = function(location){
+  //     // console.log(location.likes);
+  //     location.likes = Number(location.likes) + 1
+  //
+  //     $http({
+  //         method:'PUT',
+  //         url:'/locations/' + location._id,
+  //         data: location
+  //     }).then(function(response){
+  //         controller.getLocations()
+  //     })
+  // }
+////////
+this.likes = function(location,like,love){
+    // console.log(location.likes);
+    let userFound = false
+    let liked = like
+    let loved = love
 
-      $http({
-          method:'PUT',
-          url:'/locations/' + location._id,
-          data: location
-      }).then(function(response){
-          controller.getLocations()
-      })
-  }
+    if (this.loggedInUsername === null ) {
+        console.log('sign in first');
+        return
+    }
+    if (location.likedAndLoved.length > 0) {
+        const user = this.loggedInUsername;
+        const likeLoveArray = location.likedAndLoved
+        for(let i = 0; i < likeLoveArray.length; i++){
+            // if user is found do the following
+            if(location.likedAndLoved[i].username === user){
+                const userLikeInfo = location.likedAndLoved[i]
+                userFound = true;
+                if(userLikeInfo.liked === true){
+                    location.likes = Number(location.likes) - 1
+                }else{
+                    location.likes = Number(location.likes) + 1
+                }
+                //stop the loop
+                break
+            }
+        }
+    }
 
+    console.log('loopstopped');
+    //if user is not found then push the new user information to the location object.
+    if (userFound === false) {
+        location.likedAndLoved.push({
+            username:this.loggedInUsername,
+            liked:liked,
+            loved:loved
+        })
+    }else{
+
+    }
+
+    //
+    // $http({
+    //     method:'PUT',
+    //     url:'/locations/' + location._id,
+    //     data: location
+    // }).then(function(response){
+    //     controller.getLocations()
+    // })
+}
 }]);

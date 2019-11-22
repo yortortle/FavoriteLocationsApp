@@ -48,7 +48,7 @@ video {
 ======================*/
 .banner {
     position: relative;
-    height: 50%;
+    height: 80%;
     width: 100%;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -57,9 +57,35 @@ video {
     border: 10px solid rgb(30,34,39);
 }
 
-.banner button {
-
+/*================================
+===Div style for banner buttons
+==================================*/
+.container-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
 }
+
+/*==========================
+===container button margin
+============================*/
+.container-button button {
+    margin: 2%;
+}
+
+/*=======================
+===Banner H1
+=========================*/
+.container-h1 {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    font-size: 12px;
+}
+
+
+
 
 /* ==============
 === Display items styling

@@ -12,8 +12,8 @@
             <label for="editLocationDescription">Update your Description</label>
             <textarea id="editLocationDescription" ng-model="ctrl.oneLocation.description" class="form-control" rows="8" cols="80" ></textarea>
         </div>
-        <button type="submit" >Make Update</button>
-        <button type="button" ng-click="ctrl.deleteLocation(ctrl.oneLocation._id)">Remove Location</button>
-        <button type="button" ng-click="ctrl.changeInclude('show')">Back</button>
+        <button class="btn btn-primary" type="submit" >Make Update</button>
+        <button class="btn btn-primary" type="button" ng-click="ctrl.deleteLocation(ctrl.oneLocation._id)">Remove Location</button>
+        <button class="btn btn-primary" type="button" ng-click="ctrl.changeInclude('show')">Back</button>
     </form>
 </div>

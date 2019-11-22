@@ -168,8 +168,9 @@ app.controller("MyController", ["$http", function($http){
     })
   }
 
+  $http({
+      method:'GET',
+      url:
+  })
 
 }]);
-
-
-

@@ -3,7 +3,8 @@
     <h1>{{ctrl.oneLocation.name}}</h1>
     <img class='locationImg' ng-src="{{ctrl.oneLocation.image}}" alt="">
     <div class="showDescription">
-        {{ctrl.oneLocation.description}}
+        {{ctrl.oneLocation.description}}<br/><br/></br>
+        Created at: {{ctrl.oneLocation.createdAt}}
     </div>
     <button class="btn btn-primary" type="button" ng-click='ctrl.changeInclude("display")'>Back</button>
     <button class="btn btn-primary" type="button" ng-click='ctrl.changeInclude("edit")'>Edit</button>

@@ -32,6 +32,7 @@ app.controller("MyController", ["$http", function($http){
           method:'GET',
           url:'/locations/'+ id,
       }).then(function(response){
+        console.log(response.data)
           controller.oneLocation = response.data
           // console.log(response);
       }, function(err){

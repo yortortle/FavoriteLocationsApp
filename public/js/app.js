@@ -115,7 +115,7 @@ this.getLocations();
       }
     }).then(response => {
       console.log(response);
-      // console.log("hi");
+      $('#Modal').modal('hide');
       controller.displayApp()
       controller.changeInclude('display')
       controller.username = null;
@@ -135,6 +135,7 @@ this.getLocations();
               password: this.password
           }
       }).then(function(response){
+          $('#myModal').modal('hide');
           console.log(response);
           controller.displayApp();
           controller.changeInclude('display')

@@ -25,7 +25,7 @@ app.controller("MyController", ["$http", function($http){
     });
   };
 
-
+this.getLocations();
 
 //show route
   this.showOne = function(id){
@@ -182,21 +182,8 @@ app.controller("MyController", ["$http", function($http){
 
   })
 
-  // this.likes = function(location){
-  //     // console.log(location.likes);
-  //     location.likes = Number(location.likes) + 1
-  //
-  //     $http({
-  //         method:'PUT',
-  //         url:'/locations/' + location._id,
-  //         data: location
-  //     }).then(function(response){
-  //         controller.getLocations()
-  //     })
-  // }
-//add likes to a location
+ //like and favorite buttons
 this.likeAndLove = function(item, button){
-    console.log("click");
 
     let userFound = false
     let liked = false
@@ -224,12 +211,12 @@ this.likeAndLove = function(item, button){
                         item.likes = Number(item.likes) - 1
                         userLikeInfo.liked = false
                     }else{
-                    //if user does not like the location then this will add a like .
+                    //if user has not liked the location then this will add a like .
                         item.likes = Number(item.likes) + 1
                         userLikeInfo.liked = true
                     }
                 }else if (button === 'love') {
-                    //the if statement probably isn't necessary, but I'm throwing it in for understanding why this part should run.
+                    //this is for the favorite button abilities
                     if(loved === true){
                         userLikeInfo.loved = false
                     }else{
@@ -237,7 +224,7 @@ this.likeAndLove = function(item, button){
                     }
                 }
 
-                //stop the loop to prevent it from continuing through the loop now that we found what we wanted.
+                //stop the loop to prevent it from continuing through the loop now that we found the user.
                 break
             }
         }
@@ -272,6 +259,38 @@ this.likeAndLove = function(item, button){
     })
 }
 
-this.getLocations();
+//change thumbsup icon based on if you like or haven't liked a location
+this.getLikeValue = function(location){
+    if(this.loggedInUsername !== null){
+        let array = location.likedAndLoved
+        let user = this.loggedInUsername
+        for(let i = 0; i < array.length; i++){
+            if (array[i].username === user) {
+                return array[i].liked
+            }
+        }
+    }else{
+        return false
+    }
+
+}
+
+//change heart icon based on if you love or haven't loved a location
+this.getLoveValue = function(location){
+    if(this.loggedInUsername !== null){
+        let array = location.likedAndLoved
+        let user = this.loggedInUsername
+        for(let i = 0; i < array.length; i++){
+            if (array[i].username === user) {
+                return array[i].loved
+            }
+        }
+    }else{
+        return false
+    }
+
+}
+
+
 
 }]);

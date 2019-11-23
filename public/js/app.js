@@ -90,7 +90,7 @@ this.getLocations();
               name: this.name,
               image: this.image,
               description: this.description,
-              likes: this.likes
+              likes: this.likes,
           }
       }).then(function(response){
           controller.getLocations();

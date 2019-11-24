@@ -10,6 +10,11 @@ body{
     margin-top: 30px;
 }
 
+select{
+    width: 100px;
+    height:40px;
+}
+
 /*====================
 === nav bar
 ======================*/

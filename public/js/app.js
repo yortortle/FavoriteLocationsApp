@@ -233,11 +233,11 @@ this.likeAndLove = function(item, button){
                 if (button === 'like') {
                     //if user has already liked this then clicking again subtracts their like.
                     if(liked === true){
-                        item.likes = Number(item.likes) - 1
+                        item.likes = item.likes - 1
                         userLikeInfo.liked = false
                     }else{
                     //if user has not liked the location then this will add a like .
-                        item.likes = Number(item.likes) + 1
+                        item.likes = item.likes + 1
                         userLikeInfo.liked = true
                     }
                 }else if (button === 'love') {
@@ -259,7 +259,7 @@ this.likeAndLove = function(item, button){
     //if user is not found then push the new user information to the location object.
     if (userFound === false) {
         if (button === 'like') {
-            item.likes = Number(item.likes) + 1
+            item.likes = item.likes + 1
             item.likedAndLoved.push({
                 username:this.loggedInUsername,
                 liked:true,

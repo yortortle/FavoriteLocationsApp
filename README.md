@@ -2,7 +2,7 @@
 
 ### Authors: Thor Kuivanen, Richard Brown, and Troy Hancock
 
-<a href="https://pure-dawn-22986.herokuapp.com/">Heroku Depolyment site</a>
+<a href="https://pure-dawn-22986.herokuapp.com/">Heroku Depolyment site</a><br>
 <a href="https://github.com/yortortle/FavoriteLocationsApp">GitHub Project</a>
 
 <p>

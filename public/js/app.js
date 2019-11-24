@@ -10,6 +10,8 @@ app.controller("MyController", ["$http", function($http){
   	this.includePath = 'partials/'+ path +'.html';
   }
 
+  this.sortAZ = true
+
   //get route
   this.getLocations = function(){
       this.includePath = "partials/display.html"
@@ -25,13 +27,15 @@ app.controller("MyController", ["$http", function($http){
     });
   };
 
-  this.getLocations();
+this.getLocations();
 
+//show route
   this.showOne = function(id){
       $http({
           method:'GET',
           url:'/locations/'+ id,
       }).then(function(response){
+        // console.log(response.data)
           controller.oneLocation = response.data
           // console.log(response);
       }, function(err){
@@ -88,7 +92,8 @@ app.controller("MyController", ["$http", function($http){
               name: this.name,
               image: this.image,
               description: this.description,
-              likes: this.likes
+              likes: this.likes,
+              user1: controller.loggedInUsername
           }
       }).then(function(response){
           controller.getLocations();
@@ -113,7 +118,7 @@ app.controller("MyController", ["$http", function($http){
       }
     }).then(response => {
       console.log(response);
-      // console.log("hi");
+      $('#Modal').modal('hide');
       controller.displayApp()
       controller.changeInclude('display')
       controller.username = null;
@@ -133,6 +138,7 @@ app.controller("MyController", ["$http", function($http){
               password: this.password
           }
       }).then(function(response){
+          $('#myModal').modal('hide');
           console.log(response);
           controller.displayApp();
           controller.changeInclude('display')
@@ -181,17 +187,116 @@ app.controller("MyController", ["$http", function($http){
 
   })
 
-  this.likes = function(location){
-      // console.log(location.likes);
-      location.likes = Number(location.likes) + 1
+ //like and favorite buttons
+this.likeAndLove = function(item, button){
 
-      $http({
-          method:'PUT',
-          url:'/locations/' + location._id,
-          data: location
-      }).then(function(response){
-          controller.getLocations()
-      })
-  }
+    let userFound = false
+    let liked = false
+    let loved = false
+
+    //if user clicks without logging in nothing will happen. This way we can keep the icon there to indicate these are the likes.
+    if (this.loggedInUsername === null ) {
+
+        return
+    }
+    if (item.likedAndLoved.length > 0) {
+        const user = this.loggedInUsername;
+        const likeLoveArray = item.likedAndLoved
+        for(let i = 0; i < likeLoveArray.length; i++){
+            // if user is found do the following
+            if(item.likedAndLoved[i].username === user){
+                const userLikeInfo = item.likedAndLoved[i]
+                userFound = true;
+                liked = userLikeInfo.liked
+                loved = userLikeInfo.loved
+
+                if (button === 'like') {
+                    //if user has already liked this then clicking again subtracts their like.
+                    if(liked === true){
+                        item.likes = Number(item.likes) - 1
+                        userLikeInfo.liked = false
+                    }else{
+                    //if user has not liked the location then this will add a like .
+                        item.likes = Number(item.likes) + 1
+                        userLikeInfo.liked = true
+                    }
+                }else if (button === 'love') {
+                    //this is for the favorite button abilities
+                    if(loved === true){
+                        userLikeInfo.loved = false
+                    }else{
+                        userLikeInfo.loved = true
+                    }
+                }
+
+                //stop the loop to prevent it from continuing through the loop now that we found the user.
+                break
+            }
+        }
+    }
+
+
+    //if user is not found then push the new user information to the location object.
+    if (userFound === false) {
+        if (button === 'like') {
+            item.likes = Number(item.likes) + 1
+            item.likedAndLoved.push({
+                username:this.loggedInUsername,
+                liked:true,
+                loved: false
+            })
+        }else if (button === 'love') {
+            item.likedAndLoved.push({
+                username:this.loggedInUsername,
+                liked:false,
+                loved: true
+            })
+        }
+
+    }
+    //update with new like information
+    $http({
+        method:'PUT',
+        url:'/locations/' + item._id,
+        data: item
+    }).then(function(response){
+        controller.getLocations()
+    })
+}
+
+//change thumbsup icon based on if you like or haven't liked a location
+this.getLikeValue = function(location){
+    if(this.loggedInUsername !== null){
+        let array = location.likedAndLoved
+        let user = this.loggedInUsername
+        for(let i = 0; i < array.length; i++){
+            if (array[i].username === user) {
+                return array[i].liked
+            }
+        }
+    }else{
+        return false
+    }
+
+}
+
+//change heart icon based on if you love or haven't loved a location
+this.getLoveValue = function(location){
+    if(this.loggedInUsername !== null){
+        let array = location.likedAndLoved
+        let user = this.loggedInUsername
+        for(let i = 0; i < array.length; i++){
+            if (array[i].username === user) {
+                return array[i].loved
+            }
+        }
+    }else{
+        return false
+    }
+
+}
+
+
+
 
 }]);

@@ -18,13 +18,15 @@ router.delete('/', (req, res)=>{
 
 router.post('/', (req, res)=>{
     User.findOne({ username: req.body.username }, (err, foundUser)=>{
-        if( bcrypt.compareSync(req.body.password, foundUser.password) ){
-            req.session.currentUser = foundUser;
-            res.status(201).json({
-                status:201,
-                message:'session created'
+        if(foundUser !== null){
+            if( bcrypt.compareSync(req.body.password, foundUser.password) ){
+                req.session.currentUser = foundUser;
+                res.status(201).json({
+                    status:201,
+                    message:'session created'
             });
-        } else {
+        }
+        }else {
             res.status(401).json({
                 status:401,
                 message:'login failed'

@@ -6,7 +6,14 @@ const locationSchema = new mongoose.Schema({
 	name: {type: String, require: true, unique: true},
 	image:{type: String, require: true},
 	description: {type: String, require: true},
-  	likes: {type: String, default: 0}
+  	likes: {type: String, default: 0},
+	likedAndLoved:[{
+		username:String,
+		liked:Boolean,
+		loved:Boolean,
+	}],
+	createdAt: {type: String, default: Date.now},
+	user1: String
 })
 
 const Location = mongoose.model('Location', locationSchema)

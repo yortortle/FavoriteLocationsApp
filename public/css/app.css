@@ -36,10 +36,10 @@ nav{
 ======================*/
 video {
   position: absolute;
-  right: 0;
+  right:0;
   bottom: 0;
   min-width: 100%;
-  min-height: 50%;
+  min-height: 100%;
   z-index: -1;
 }
 
@@ -48,7 +48,7 @@ video {
 ======================*/
 .banner {
     position: relative;
-    height: 50%;
+    height: 80%;
     width: 100%;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -57,29 +57,83 @@ video {
     border: 10px solid rgb(30,34,39);
 }
 
-.banner button {
-
+/*================================
+===Div style for banner buttons
+==================================*/
+.container-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
 }
+
+/*==========================
+===container button margin
+============================*/
+.container-button button {
+    margin: 2%;
+}
+
+/*=======================
+===Banner H1
+=========================*/
+.container-h1 {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    font-size: 12px;
+}
+
+/*================
+===h2 style
+==================*/
+h2 {
+    color: #6F8C5F;
+    text-shadow: 2px 2px black;
+}
+/*====================
+===New location style
+======================*/
+.label1 {
+    color: #6F8C5F;
+    text-shadow: 1px 1px black;
+}
+
+/*=========================
+===Login/signup input style
+===========================*/
+.input1 {
+    margin:1%;
+}
+
+
+
 /* ==============
 === Display items styling
 ================= */
+.displayWrapper{
+    display:flex;
+    flex-direction:column;
+    background-color: rgba(171,116,167,.5);
+    border-radius: 10px;
+}
+
 .displayContainer{
     display: flex;
     flex-flow: row wrap;
-    background-color: rgba(216,191,216,.8);
-    border-radius: 10px;
+    justify-content: center;
 }
 
 .displayItem {
     position:relative;
-    width:300px;
-    height: 200px;
+    width:260px;
+    height: 150px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     border-radius: 10px;
-    box-shadow: 2px 2px 3px plum;
+    box-shadow: 2px 2px 3px rgb(171,116,167);
     margin:15px;
     background-color: white;
 }
@@ -172,16 +226,30 @@ video {
 /* ==============
 === Show one item styling
 ================= */
+.showContainer{
+    background-color: rgba(171,116,167,.5);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
 .locationImg{
-    width:100%;
+    width:70%;
     border-radius: 10px;
 }
 .showDescription{
-    background-color: #FFFAFF;
+    background-color: #E0FFFB;
     margin: 10px 0;
     border-radius: 10px;
     padding:15px;
+    width:90%;
 }
+
+/* ==============
+=== footer styling
+================= */
 
 footer{
   background-color: #6F8C5F;
@@ -214,13 +282,6 @@ footer{
     cursor: pointer;
 }
 
-.footerDivs{
-  display: flex;
-  justify-content: space-around;
-  /* margin: 20px; */
-  /* margin: 0 40px 0 40px; */
-}
-
 .footerTwo {
   padding: 15px 0px 5px 0px;
 }
@@ -228,3 +289,10 @@ footer{
 .copyright{
   text-align: center;
 }
+//////////////////////////////////////////
+.modal-header, h4, .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+  }

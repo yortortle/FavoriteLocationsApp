@@ -61,26 +61,31 @@ this.getLocations();
 
   //edit route
   this.editLocation = function(id){
-    $http({
-      method: "PUT",
-      url: "/locations/" + id,
-      data: {
-        name: this.oneLocation.name,
-        image: this.oneLocation.image,
-        description: this.oneLocation.description,
-        likes: this.oneLocation.likes
-      }
-    }).then(
-      function(response){
-        controller.getLocations()
+    if (this.loggedInUsername) {
+      $http({
+        method: "PUT",
+        url: "/locations/" + id,
+        data: {
+          name: this.oneLocation.name,
+          image: this.oneLocation.image,
+          description: this.oneLocation.description,
+          likes: this.oneLocation.likes
+        }
+      }).then(
+        function(response){
+          controller.getLocations()
 
-        // document.getElementById("editform").reset();
-        // controller.url = null;
-      },
-      function error() {
-        console.log("error");
-      }
-    )
+          // document.getElementById("editform").reset();
+          // controller.url = null;
+        },
+        function error() {
+          console.log("error");
+        }
+      )
+    }
+    else {
+      console.log("need to be logged in");
+    }
   }
 
   //new location

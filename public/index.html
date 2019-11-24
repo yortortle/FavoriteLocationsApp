@@ -20,7 +20,7 @@
 	<!-- testing modal -->
 	<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
@@ -43,14 +43,14 @@
           	<button class="btn btn-danger btn-default" data-dismiss="modal" type="button" ng-click="ctrl.changeInclude('display')" name="button"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Return</button>
         </div>
       </div>
-      
+
     </div>
-  </div> 
+  </div>
 </div>  <!-- bottom login modal -->
 
 <div class="modal fade" id="Modal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
@@ -73,9 +73,9 @@
           	<button class="btn btn-danger btn-default" data-dismiss="modal" type="button" ng-click="ctrl.changeInclude('display')" name="button"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Return</button>
         </div>
       </div>
-      
+
     </div>
-  </div> 
+  </div>
 </div>  <!-- bottom sign up modal -->
 
 
@@ -86,7 +86,7 @@
 
 	<nav class="container-fluid" ng-if='ctrl.loggedInUsername !== null'>
 		<h1>World Locations</h1>
-		<button ng-if='ctrl.includePath === "partials/display.html"' type="button" ng-click="ctrl.changeInclude('new')" class="btn btn-outline-light">+ Add Location</button>
+		<button ng-if='ctrl.includePath === "partials/display.html" || ctrl.includePath ==="partials/show.html"' type="button" ng-click="ctrl.changeInclude('new')" class="btn btn-light">+ Add Location</button>
 		<div class="navUserInfo">
 			<p class = "loggedin" ng-if="ctrl.loggedInUsername">
 			        Welcome, {{ctrl.loggedInUsername}}!

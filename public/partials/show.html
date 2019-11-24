@@ -1,11 +1,13 @@
 <div class="showContainer">
 
-    <h1>{{ctrl.oneLocation.name}}</h1>
+    <h1 class="display-1">{{ctrl.oneLocation.name}}</h1>
     <img class='locationImg' ng-src="{{ctrl.oneLocation.image}}" alt="">
     <div class="showDescription">
-        {{ctrl.oneLocation.description}}<br/><br/></br>
-        Created at: {{ctrl.oneLocation.createdAt}}
+        <p>{{ctrl.oneLocation.description}}</p>
+        <p>Created: {{ctrl.oneLocation.createdAt | date:'MMM d, y'}} at {{ctrl.oneLocation.createdAt | date:'shortTime'}}</p>
     </div>
-    <button class="btn btn-primary" type="button" ng-click='ctrl.changeInclude("display")'>Back</button>
-    <button class="btn btn-primary" type="button" ng-click='ctrl.changeInclude("edit")'>Edit</button>
+    <div class="showButtons d-flex flex-row justify-content-center">
+        <button class="btn btn-primary btn-lg m-3" type="button" ng-click='ctrl.changeInclude("display")'>Back</button>
+        <button class="btn btn-primary btn-lg m-3" type="button" ng-click='ctrl.changeInclude("edit")'>Edit</button>
+    </div>
 </div>

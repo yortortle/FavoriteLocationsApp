@@ -3,9 +3,9 @@
         <select class="sort" ng-model="ctrl.selected" >
             <option ng-value="['-createdAt','']">Most Recent</option>
             <option ng-value="['name','']">A-Z</option>
-            <option ng-value="['likes','']">Most Popular</option>
+            <option ng-value="['-likes','']">Most Popular</option>
             <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',ctrl.loggedInUsername]">Submitted By {{ctrl.loggedInUsername}}</option>
-            <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',ctrl.loggedInUsername]">Submitted By {{ctrl.loggedInUsername}}</option>
+            <!-- <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',ctrl.loggedInUsername]">Submitted By {{ctrl.loggedInUsername}}</option> -->
 
 
         </select>
@@ -23,9 +23,3 @@
             </div>
         </div>
 </div>
-
-
-
-
-
-

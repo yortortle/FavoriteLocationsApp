@@ -5,6 +5,7 @@
     <div class="showDescription">
         <p>{{ctrl.oneLocation.description}}</p>
         <p>Created: {{ctrl.oneLocation.createdAt | date:'MMM d, y'}} at {{ctrl.oneLocation.createdAt | date:'shortTime'}}</p>
+        <p>Submitted By: {{ctrl.oneLocation.user1}}</p>
     </div>
     <div class="showButtons d-flex flex-row justify-content-center">
         <button class="btn btn-primary btn-lg m-3" type="button" ng-click='ctrl.changeInclude("display")'>Back</button>

@@ -93,6 +93,7 @@ this.getLocations();
               image: this.image,
               description: this.description,
               likes: this.likes,
+              user1: controller.loggedInUsername
           }
       }).then(function(response){
           controller.getLocations();

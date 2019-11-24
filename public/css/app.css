@@ -14,21 +14,36 @@ body{
 === nav bar
 ======================*/
 nav{
-    background-color: #6F8C5F;
-    min-height: 100px;
+    background-color: #253529;
+    min-height: 120px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
+    /* background-color: black; */
 }
 
 .navUserInfo{
     display: flex;
     flex-direction: column;
-    align-content: space-around;
+    align-content: center;
     align-items: center;
+    border: 1px solid rgba(50, 50, 50, 0.5);
+    padding: 10px;
+    height: 75px;
+    border-radius: 8px;
+    background-color: white;
 }
+
+#navcontainer > h2, a, span{
+  color: white;
+}
+
+#navcontainer > h2{
+  margin-bottom: 20px;
+}
+
 
 
 /*====================
@@ -116,12 +131,14 @@ h2 {
     flex-direction:column;
     background-color: rgba(171,116,167,.5);
     border-radius: 10px;
+    padding: 15px;
 }
 
 .displayContainer{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+
 }
 
 .displayItem {
@@ -252,9 +269,11 @@ h2 {
 ================= */
 
 footer{
-  background-color: #6F8C5F;
-  border-radius: 10px;
-  margin-top: 20px;
+  /* background-color: #6F8C5F; */
+  background-color: #253529;
+  /* border-radius: 1; */
+  margin-top: 50px;
+  color: white;
 }
 
 .hover{
@@ -264,16 +283,14 @@ footer{
 .footerIcons{
   display: flex;
   justify-content: center;
-  padding-top: 50px;
-  /* padding-left: 20px; */
-  /* padding-right: 20px; */
+  padding-top: 25px;
   margin: 10px;
   text-align: center;
 }
 
 .logo{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   /* padding: 15px; */
   margin: 0px 45px 0px 45px;
 }
@@ -283,11 +300,12 @@ footer{
 }
 
 .footerTwo {
-  padding: 15px 0px 5px 0px;
+  padding: 5px 0px 0px 0px;
 }
 
 .copyright{
   text-align: center;
+  font-size: 10px;
 }
 //////////////////////////////////////////
 .modal-header, h4, .close {

@@ -12,7 +12,8 @@ const locationSchema = new mongoose.Schema({
 		liked:Boolean,
 		loved:Boolean,
 	}],
-	createdAt: {type: String, default: Date.now}
+	createdAt: {type: String, default: Date.now},
+	user1: String
 })
 
 const Location = mongoose.model('Location', locationSchema)

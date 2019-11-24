@@ -126,8 +126,8 @@ h2 {
 
 .displayItem {
     position:relative;
-    width:300px;
-    height: 200px;
+    width:260px;
+    height: 150px;
     overflow: hidden;
     display: flex;
     flex-direction: column;

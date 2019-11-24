@@ -1,13 +1,16 @@
     <div class="displayWrapper">
-        <select class="sort" ng-model="selected">
-            <option selected='selected'value="createdAt">Most Recent</option>
-            <option value="name">Name</option>
-            <option value="">Show Your Submissions</option>
+        <label>Sort/Filter:</label>
+        <select class="sort" ng-model="ctrl.selected" >
+            <option ng-value="['-createdAt','']">Most Recent</option>
+            <option ng-value="['name','']">A-Z</option>
+            <option ng-value="['likes','']">Most Popular</option>
+            <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',ctrl.loggedInUsername]">Submitted By {{ctrl.loggedInUsername}}</option>
+            <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',ctrl.loggedInUsername]">Submitted By {{ctrl.loggedInUsername}}</option>
 
 
         </select>
         <div class="displayContainer">
-            <div ng-repeat ="location in ctrl.location | orderBy: selected ===undefined? selected = '-createdAt': selected==='createdAt'?'-'+ selected: selected" ng-click="ctrl.changeInclude('show');ctrl.showOne(location._id)" class="displayItem" >
+            <div ng-repeat ="location in ctrl.location | orderBy: ctrl.selected[0] | filter: {'user1': ctrl.selected[1]} " ng-click="ctrl.changeInclude('show');ctrl.showOne(location._id)" class="displayItem" >
 
                 <img  class="displayImg" ng-src="{{location.image}}" alt="">
 

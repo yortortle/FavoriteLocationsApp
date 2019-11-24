@@ -10,7 +10,8 @@ app.controller("MyController", ["$http", function($http){
   	this.includePath = 'partials/'+ path +'.html';
   }
 
-  this.sortAZ = true
+  //Variable for performing filter
+  this.selected = ['-createdAt',""]
 
   //get route
   this.getLocations = function(){
@@ -300,6 +301,7 @@ this.getLoveValue = function(location){
     }
 
 }
+
 
 
 

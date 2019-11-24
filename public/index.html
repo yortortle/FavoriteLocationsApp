@@ -84,14 +84,14 @@
 
 
 
-	<nav class="container-fluid" ng-if='ctrl.loggedInUsername !== null'>
-		<h1>World Locations</h1>
+	<nav id="navcontainer" class="container-fluid" ng-if='ctrl.loggedInUsername !== null'>
+		<h2 id="locationsheader">World Locations</h2>
 		<button ng-if='ctrl.includePath === "partials/display.html" || ctrl.includePath ==="partials/show.html"' type="button" ng-click="ctrl.changeInclude('new')" class="btn btn-light">+ Add Location</button>
 		<div class="navUserInfo">
 			<p class = "loggedin" ng-if="ctrl.loggedInUsername">
-			        Welcome, {{ctrl.loggedInUsername}}!
-			</p>
-			<span ng-include="'partials/logoutbutton.html'"></span>
+			       Welcome, {{ctrl.loggedInUsername}}!
+						 <br/><p>
+			<span ng-include="'partials/logoutbutton.html'"></span>			</p>
 		</div>
 	</nav>
 

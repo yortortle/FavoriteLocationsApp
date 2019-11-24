@@ -10,6 +10,8 @@ app.controller("MyController", ["$http", function($http){
   	this.includePath = 'partials/'+ path +'.html';
   }
 
+  this.sortAZ = true
+
   //get route
   this.getLocations = function(){
       this.includePath = "partials/display.html"
@@ -33,7 +35,7 @@ this.getLocations();
           method:'GET',
           url:'/locations/'+ id,
       }).then(function(response){
-        console.log(response.data)
+        // console.log(response.data)
           controller.oneLocation = response.data
           // console.log(response);
       }, function(err){
@@ -292,6 +294,7 @@ this.getLoveValue = function(location){
     }
 
 }
+
 
 
 

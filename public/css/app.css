@@ -111,11 +111,17 @@ h2 {
 /* ==============
 === Display items styling
 ================= */
+.displayWrapper{
+    display:flex;
+    flex-direction:column;
+    background-color: rgba(171,116,167,.5);
+    border-radius: 10px;
+}
+
 .displayContainer{
     display: flex;
     flex-flow: row wrap;
-    background-color: rgba(216,191,216,.8);
-    border-radius: 10px;
+    justify-content: center;
 }
 
 .displayItem {
@@ -127,7 +133,7 @@ h2 {
     flex-direction: column;
     justify-content: flex-end;
     border-radius: 10px;
-    box-shadow: 2px 2px 3px plum;
+    box-shadow: 2px 2px 3px rgb(171,116,167);
     margin:15px;
     background-color: white;
 }
@@ -220,16 +226,30 @@ h2 {
 /* ==============
 === Show one item styling
 ================= */
+.showContainer{
+    background-color: rgba(171,116,167,.5);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
 .locationImg{
-    width:100%;
+    width:70%;
     border-radius: 10px;
 }
 .showDescription{
-    background-color: #FFFAFF;
+    background-color: #E0FFFB;
     margin: 10px 0;
     border-radius: 10px;
     padding:15px;
+    width:90%;
 }
+
+/* ==============
+=== footer styling
+================= */
 
 footer{
   background-color: #6F8C5F;
@@ -260,13 +280,6 @@ footer{
 
 .hover:hover{
     cursor: pointer;
-}
-
-.footerDivs{
-  display: flex;
-  justify-content: space-around;
-  /* margin: 20px; */
-  /* margin: 0 40px 0 40px; */
 }
 
 .footerTwo {

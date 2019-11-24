@@ -60,6 +60,20 @@ this.getLocations();
     );
   }
 
+  // this.comment = function(id) {
+  //   $http({
+  //     method: 'PUT',
+  //     url: "/locations/" + id,
+  //     data: {
+  //       comment: this.comment
+  //     }
+  //   }).then(function(response) {
+  //     controller.getLocations()
+  //   }, function(error){
+  //     console.log(error)
+  //   })
+  // }
+
   //edit route
   this.editLocation = function(id){
     if (this.loggedInUsername) {

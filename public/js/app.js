@@ -68,6 +68,7 @@ this.getLocations();
   //       comment: this.comment
   //     }
   //   }).then(function(response) {
+  //     console.log(response)
   //     controller.getLocations()
   //   }, function(error){
   //     console.log(error)

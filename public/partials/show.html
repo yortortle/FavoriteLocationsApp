@@ -7,6 +7,7 @@
         <p>Created: {{ctrl.oneLocation.createdAt | date:'MMM d, y'}} at {{ctrl.oneLocation.createdAt | date:'shortTime'}}</p>
         <p>Submitted By: {{ctrl.oneLocation.user1}}</p>
     </div>
+    
     <div class="showDescription" ng-if='ctrl.loggedInUsername !== null'>
         <textarea style="background-color: #E0FFFB;border:none;"cols="135" rows="4" id="inputlg" type="text" placeholder="Comment here..."></textarea>
     </div>  

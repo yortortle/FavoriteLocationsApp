@@ -10,7 +10,39 @@ app.controller("MyController", ["$http", function($http){
   	this.includePath = 'partials/'+ path +'.html';
   }
 
-  this.sortAZ = true
+  //Variable for performing filter
+  this.selected = ['-createdAt',""]
+///////////////////////////////////////////////////////////////
+   // new /////////////
+  this.getComments = function() {
+      $http({
+        method: 'GET',
+        url: '/comments/'
+      }).then(function(response) {
+        console.log(response.data)
+        controller.comment = response.data
+      }, function(error) {
+        console.log(error)
+      })
+  }
+  this.getComments()
+
+  //// new post //////////////
+  this.createComments = function() {
+    $http({
+      method: 'POST',
+      url: '/comments',
+      data: {
+        comment: this.newComment,
+        user1: controller.loggedInUsername,
+        name: controller.oneLocation.name
+      }
+    }).then(function(response) {
+      controller.getComments()
+      controller.newComment = ""
+    })
+  }
+//////////////////////////////////////////////////////////////////
 
   //get route
   this.getLocations = function(){
@@ -218,11 +250,11 @@ this.likeAndLove = function(item, button){
                 if (button === 'like') {
                     //if user has already liked this then clicking again subtracts their like.
                     if(liked === true){
-                        item.likes = Number(item.likes) - 1
+                        item.likes = item.likes - 1
                         userLikeInfo.liked = false
                     }else{
                     //if user has not liked the location then this will add a like .
-                        item.likes = Number(item.likes) + 1
+                        item.likes = item.likes + 1
                         userLikeInfo.liked = true
                     }
                 }else if (button === 'love') {
@@ -244,7 +276,7 @@ this.likeAndLove = function(item, button){
     //if user is not found then push the new user information to the location object.
     if (userFound === false) {
         if (button === 'like') {
-            item.likes = Number(item.likes) + 1
+            item.likes = item.likes + 1
             item.likedAndLoved.push({
                 username:this.loggedInUsername,
                 liked:true,
@@ -301,7 +333,35 @@ this.getLoveValue = function(location){
 
 }
 
+this.sortLoggedIn = [
+    {
+        value:'-createdAt',
+        label:'Most Recent',
+        filter: ''
+    },
+    {
+        value:'name',
+        label:'A-Z',
+        filter: ''
+    },
+    {
+        value:'-likes',
+        label:'Most Popular',
+        filter: ''
+    },
+    {
+        value:'-createdAt',
+        label:'My Submissions',
+        filter: 'user'
+    },
+    {
+        value:'-createdAt',
+        label:'My Favorites',
+        filter: 'favorites'
+    }
+]
 
+this.sort = this.sortLoggedIn[0]
 
 
 }]);

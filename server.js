@@ -50,6 +50,10 @@ app.use('/users', userController);
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 
+//new
+const commentsController = require('./controllers/comments.js');
+app.use('/comments', commentsController);
+
 /////////////////////
 //DATABASE
 /////////////////////

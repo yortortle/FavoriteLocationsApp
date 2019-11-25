@@ -1,24 +1,16 @@
     <div class="displayWrapper">
 
       <div class="organizesort">
-        <label id="sortfilter">Sort By:</label>
-        <!-- <div class="sortNotLoggedIn"ng-if="ctrl.loggedInUsername === null">
-            <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortNotLoggedIn'>
-            </select>
-        </div> -->
-        <div class="sortLoggedIn" >
+        <div class="sortLoggedIn d-flex flex-column mx-5 align-items-center" >
+            <label id="sortfilter">Sort By:</label>
             <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortLoggedIn' id="sortbutton">
             </select>
         </div>
+        <div class="search d-flex flex-column mx-5 align-items-center">
+            <label>Search:</label>
+            <input type="text" ng-model="search" placeholder="Search">
+        </div>
       </div>
-
-        <!-- <select class="sort"  >
-
-            <option ng-value="['-createdAt','']" >Most Recent</option>
-            <option ng-value="['name','']"selected>A-Z</option>
-            <option ng-value="['-likes','']">Most Popular</option>
-            <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',ctrl.loggedInUsername]">Submitted By {{ctrl.loggedInUsername}}</option>
-            <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',{{location.likedAndLoved.loved}}]">Submitted By {{ctrl.loggedInUsername}}</option>
 
 
         <div class="displayContainer">

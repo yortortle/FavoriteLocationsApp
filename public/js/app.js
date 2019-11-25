@@ -34,7 +34,8 @@ app.controller("MyController", ["$http", function($http){
       url: '/comments',
       data: {
         comment: this.newComment,
-        user1: controller.loggedInUsername
+        user1: controller.loggedInUsername,
+        name: controller.oneLocation.name
       }
     }).then(function(response) {
       controller.getComments()

@@ -21,10 +21,8 @@
             <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',{{location.likedAndLoved.loved}}]">Submitted By {{ctrl.loggedInUsername}}</option>
 
 
-        </select> -->
-        <h2>{{ctrl.selected[1]}}</h2>
         <div class="displayContainer">
-            <div ng-repeat ="location in ctrl.location | orderBy:ctrl.sort.value | filter: (ctrl.sort.filter === 'user'? {'user1': ctrl.loggedInUsername}: (ctrl.sort.filter === 'favorites'? {'likedAndLoved': {'username': ctrl.loggedInUsername, 'loved': true} }:''))" ng-click="ctrl.changeInclude('show');ctrl.showOne(location._id)" class="displayItem" >
+            <div ng-repeat ="location in ctrl.location | orderBy:ctrl.sort.value | filter: (ctrl.sort.filter === 'user'? {'user1': ctrl.loggedInUsername}: (ctrl.sort.filter === 'favorites'? {'likedAndLoved': {'username': ctrl.loggedInUsername, 'loved': true} }:'')) | filter: search" ng-click="ctrl.changeInclude('show');ctrl.showOne(location._id)" class="displayItem" >
 
                 <img  class="displayImg" ng-src="{{location.image}}" alt="">
 

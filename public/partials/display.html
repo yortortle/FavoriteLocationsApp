@@ -1,13 +1,17 @@
     <div class="displayWrapper">
-        <label>Sort/Filter:</label>
+
+      <div class="organizesort">
+        <label id="sortfilter">Sort By:</label>
         <!-- <div class="sortNotLoggedIn"ng-if="ctrl.loggedInUsername === null">
             <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortNotLoggedIn'>
             </select>
         </div> -->
         <div class="sortLoggedIn" >
-            <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortLoggedIn'>
+            <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortLoggedIn' id="sortbutton">
             </select>
         </div>
+      </div>
+
         <!-- <select class="sort"  >
 
             <option ng-value="['-createdAt','']" >Most Recent</option>

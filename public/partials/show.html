@@ -15,9 +15,7 @@
    <div class="showDescription" ng-if='comment.name === ctrl.oneLocation.name' ng-repeat="comment in ctrl.comment">
      <p>{{comment.comment}} - {{comment.user1}}</p>
      </div>
-    <!-- <div class="showDescription" ng-if='ctrl.loggedInUsername !== ctrl.oneLocation.user1' ng-repeat="comment in ctrl.comment">
-        <p>{{comment.comment}} + {{comment.user1}}</p> <!-- //new -->
-    </div> -->
+    
     <div class="showDescription" ng-if='ctrl.loggedInUsername !== null'> <!-- //new -->
     <form ng-submit="ctrl.createComments()">
         <textarea style="background-color: #E0FFFB;border:none;"cols="135" rows="4" id="inputlg" type="text" placeholder="Comment here..." ng-model="ctrl.newComment"></textarea>
@@ -25,6 +23,7 @@
     </form>
 
     </div>
+    </div> 
     <!-- ............................................................................ -->
     <div class="showButtons d-flex flex-row justify-content-center">
         <button class="btn btn-primary btn-lg m-3" type="button" ng-click='ctrl.changeInclude("display")'>Back</button>

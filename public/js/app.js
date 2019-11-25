@@ -332,8 +332,4 @@ this.getLoveValue = function(location){
 
 }
 
-
-
-
-
 }]);

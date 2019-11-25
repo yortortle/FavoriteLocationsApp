@@ -1,6 +1,8 @@
 body{
   font-family: sans-serif;
-  background-image: url('imgs/backgroundTravel.png');
+  /* background-image: url('imgs/backgroundTravel.png'); */
+  background-image: url('http://ubuntuhandbook.org/wp-content/uploads/2014/03/ubuntu1404wallpaper6.jpg');
+  /* background-color: gray; */
   background-size: contain;
   background-repeat: repeat;
   background-color: rgba(223,213,174,.7);
@@ -19,7 +21,8 @@ select{
 === nav bar
 ======================*/
 nav{
-    background-color: #253529;
+    /* background-color: #253529; */
+    background-color: rgba(0, 0, 0, 0.5);
     min-height: 120px;
     display: flex;
     flex-flow: row wrap;
@@ -282,7 +285,8 @@ h2 {
 
 footer{
   /* background-color: #6F8C5F; */
-  background-color: #253529;
+  /* background-color: #253529; */
+  background-color: rgba(0, 0, 0, 0.5);
   /* border-radius: 1; */
   margin-top: 50px;
   color: white;
@@ -327,3 +331,24 @@ footer{
     font-size: 30px;
   }
 ///////////////////////////////////////////
+
+/* sort/filter styling */
+
+#sortfilter{
+  /* text-align: center; */
+}
+
+#sortbutton{
+  /* color: green; */
+  /* margin: 20px; */
+  /* text-align: center; */
+  width: 150px;
+  height: 25px;
+}
+
+.organizesort{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}

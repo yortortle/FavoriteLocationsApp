@@ -332,4 +332,35 @@ this.getLoveValue = function(location){
 
 }
 
+this.sortLoggedIn = [
+    {
+        value:'-createdAt',
+        label:'Most Recent',
+        filter: ''
+    },
+    {
+        value:'name',
+        label:'A-Z',
+        filter: ''
+    },
+    {
+        value:'-likes',
+        label:'Most Popular',
+        filter: ''
+    },
+    {
+        value:'-createdAt',
+        label:'My Submissions',
+        filter: 'user'
+    },
+    {
+        value:'-createdAt',
+        label:'My Favorites',
+        filter: 'favorites'
+    }
+]
+
+this.sort = this.sortLoggedIn[0]
+
+
 }]);

@@ -12,6 +12,36 @@ app.controller("MyController", ["$http", function($http){
 
   //Variable for performing filter
   this.selected = ['-createdAt',""]
+///////////////////////////////////////////////////////////////
+   // new /////////////
+  this.getComments = function() {
+      $http({
+        method: 'GET',
+        url: '/comments/'
+      }).then(function(response) {
+        console.log(response.data)
+        controller.comment = response.data
+      }, function(error) {
+        console.log(error)
+      })
+  }
+  this.getComments()
+
+  //// new post //////////////
+  this.createComments = function() {
+    $http({
+      method: 'POST',
+      url: '/comments',
+      data: {
+        comment: this.newComment,
+        user1: controller.loggedInUsername
+      }
+    }).then(function(response) {
+      controller.getComments()
+      controller.newComment = ""
+    })
+  }
+//////////////////////////////////////////////////////////////////
 
   //get route
   this.getLocations = function(){
@@ -59,20 +89,6 @@ this.getLocations();
       }
     );
   }
-
-  // this.comment = function(id) {
-  //   $http({
-  //     method: 'PUT',
-  //     url: "/locations/" + id,
-  //     data: {
-  //       comment: this.comment
-  //     }
-  //   }).then(function(response) {
-  //     controller.getLocations()
-  //   }, function(error){
-  //     console.log(error)
-  //   })
-  // }
 
   //edit route
   this.editLocation = function(id){

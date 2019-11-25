@@ -7,12 +7,19 @@
         <p>Created: {{ctrl.oneLocation.createdAt | date:'MMM d, y'}} at {{ctrl.oneLocation.createdAt | date:'shortTime'}}</p>
         <p>Submitted By: {{ctrl.oneLocation.user1}}</p>
     </div>
-    <div class="showDescription" ng-if='ctrl.loggedInUsername !== null'>
-        <textarea style="background-color: #E0FFFB;border:none;"cols="135" rows="4" id="inputlg" type="text" placeholder="Comment here..."></textarea>
-    </div>  
+   <!--  new.................................................................... -->
+    <div class="showDescription" ng-if='ctrl.loggedInUsername !== null' ng-repeat="comment in ctrl.comment"> 
+        <p>{{comment.comment}}</p> <!-- //new -->
+    </div>
+    <div class="showDescription" ng-if='ctrl.loggedInUsername !== null'> <!-- //new -->
+    <form ng-submit="ctrl.createComments()">
+        <textarea style="background-color: #E0FFFB;border:none;"cols="135" rows="4" id="inputlg" type="text" placeholder="Comment here..." ng-model="ctrl.newComment"></textarea>
+         <button class="btn btn-primary btn-lg m-3" type="submit" >Comment</button>
+    </form>
 
+    </div>  
+    <!-- ............................................................................ -->
     <div class="showButtons d-flex flex-row justify-content-center">
-        <button class="btn btn-primary btn-lg m-3" type="button" ng-if='ctrl.loggedInUsername !== null'>Comment</button>
         <button class="btn btn-primary btn-lg m-3" type="button" ng-click='ctrl.changeInclude("display")'>Back</button>
         <button ng-if="ctrl.loggedInUsername === ctrl.oneLocation.user1" class="btn btn-primary btn-lg m-3" type="button" ng-click='ctrl.changeInclude("edit")'>Edit</button>
     </div>

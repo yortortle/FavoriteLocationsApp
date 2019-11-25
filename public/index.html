@@ -1,7 +1,7 @@
 <html ng-app="locationsApp">
 <head>
 	<meta charset="utf-8">
-	<title>World Locations</title>
+	<title>Explore The World</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
                 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -85,7 +85,7 @@
 
 
 	<nav id="navcontainer" class="container-fluid" ng-if='ctrl.loggedInUsername !== null'>
-		<h2 id="locationsheader">World Locations</h2>
+		<h2 id="locationsheader">World Explorer</h2>
 		<button ng-if='ctrl.includePath === "partials/display.html" || ctrl.includePath ==="partials/show.html"' type="button" ng-click="ctrl.changeInclude('new')" class="btn btn-light">+ Add Location</button>
 		<div class="navUserInfo">
 			<p class = "loggedin" ng-if="ctrl.loggedInUsername">
@@ -97,7 +97,7 @@
 
 	<div ng-if='ctrl.loggedInUsername === null' class="banner">
 		<div class="container-h1">
-			<h1>World Locations</h1>
+			<h1>World Explorer</h1>
 		</div>
 		<div class="container-button">
 			<button type="button" class="btn btn-primary btn-lg" id="myBtn" data-toggle="modal" data-target="#Modal">Sign Up</button>

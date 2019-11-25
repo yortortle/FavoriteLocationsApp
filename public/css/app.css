@@ -102,6 +102,8 @@ video {
     justify-content: center;
     height: 100px;
     font-size: 12px;
+    font-family: 'Righteous', cursive;
+    margin: 10px 0 20px; text-transform: uppercase; text-shadow: 2px 2px 0 #000, margin: 10px 0 24px;
 }
 
 /*================

@@ -20,15 +20,15 @@
         Created: {{comment.createdAt | date: 'MMM d, y'}} at {{comment.createdAt | date:'shortTime'}}
      </p>
      </div>
-    
+
     <div class="showDescription" ng-if='ctrl.loggedInUsername !== null'> <!-- //new -->
     <form ng-submit="ctrl.createComments()">
-        <textarea style="background-color: #E0FFFB;border:none;"cols="135" rows="4" id="inputlg" type="text" placeholder="Comment here..." ng-model="ctrl.newComment"></textarea>
+        <textarea id="testarea" style="background-color: #E0FFFB;border:none;"cols="135" rows="4" id="inputlg" type="text" placeholder="Comment here..." ng-model="ctrl.newComment"></textarea>
          <button class="btn btn-primary btn-lg m-3" type="submit" >Comment</button>
     </form>
 
     </div>
-    </div> 
+    </div>
     <!-- ............................................................................ -->
     <div class="showButtons d-flex flex-row justify-content-center">
         <button class="btn btn-primary btn-lg m-3" type="button" ng-click='ctrl.changeInclude("display")'>Back</button>

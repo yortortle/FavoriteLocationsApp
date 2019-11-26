@@ -2,12 +2,12 @@
 
       <div class="organizesort">
         <div class="sortLoggedIn d-flex flex-column mx-5 align-items-center" >
-            <label id="sortfilter">Sort By:</label>
+            <label class='organizeLabel'>Sort By:</label>
             <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortLoggedIn' id="sortbutton">
             </select>
         </div>
         <div class="search d-flex flex-column mx-5 align-items-center">
-            <label>Search:</label>
+            <label class='organizeLabel'>Search:</label>
             <input type="text" ng-model="search" placeholder="Search" class="search">
         </div>
       </div>

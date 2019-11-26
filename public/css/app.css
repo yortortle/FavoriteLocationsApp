@@ -3,8 +3,8 @@ body{
   /* background-image: url('imgs/backgroundTravel.png'); */
   background-image: url('imgs/spacepaper.jpg');
   /* background-color: gray; */
-  background-size: contain;
-  background-repeat: repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: rgba(223,213,174,.7);
 }
 
@@ -29,6 +29,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    padding: 0 40px;
     /* background-color: black; */
 }
 
@@ -44,15 +45,12 @@ nav{
     background-color: white;
 }
 
-#navcontainer > h2, a, span{
-  color: white;
+#navcontainer  h2{
+    font-family: 'Righteous', cursive;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 20px;
 }
-
-#navcontainer > h2{
-  margin-bottom: 20px;
-}
-
-
 
 /*====================
 ===video for banner
@@ -339,16 +337,15 @@ footer{
 
 /* sort/filter styling */
 
-#sortfilter{
-  /* text-align: center; */
-}
-
 #sortbutton{
-  /* color: green; */
-  /* margin: 20px; */
-  /* text-align: center; */
   width: 150px;
   height: 25px;
+}
+
+.organizeLabel{
+    font-size: 20px;
+    color:white;
+    letter-spacing: 2px;
 }
 
 .organizesort{

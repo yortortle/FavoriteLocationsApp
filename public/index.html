@@ -1,7 +1,7 @@
 <html ng-app="locationsApp">
 <head>
 	<meta charset="utf-8">
-	<title>World Locations</title>
+	<title>Explore The World</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
                 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -22,18 +22,18 @@
     <div class="modal-dialog">
 
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="background-color: rgb(30,34,39)">
         <div class="modal-header" style="padding:35px 50px;">
-          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+          <h4 style="color: white"><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
           <form role="form" ng-submit="ctrl.logIn()">
             <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <label for="usrname" style="color: white"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input class="form-control" type="text" ng-model="ctrl.username" placeholder="Username" /><br/>
             </div>
             <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <label for="psw" style="color: white"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
               <input class="form-control" type="password" ng-model="ctrl.password" placeholder="Password" /><br/>
             </div>
              <button class="btn btn-primary btn-block" id="loginbutton"  type="submit"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Login</button>
@@ -52,18 +52,18 @@
     <div class="modal-dialog">
 
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="background-color: rgb(30,34,39)">
         <div class="modal-header" style="padding:35px 50px;">
-          <h4><span class="glyphicon glyphicon-lock"></span> Sign Up</h4>
+          <h4 style="color: white"><span class="glyphicon glyphicon-lock"></span> Sign Up</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
           <form role="form" ng-submit="ctrl.createUser()">
             <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <label for="usrname" style="color: white"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input class="form-control" type="text" ng-model="ctrl.username" placeholder="Username" /><br/>
             </div>
             <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <label for="psw" style="color: white"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
               <input class="form-control" type="password" ng-model="ctrl.password" placeholder="Password" /><br/>
             </div>
              <button class="btn btn-primary btn-block" id="userbutton" type="submit"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Sign Up</button>
@@ -84,20 +84,18 @@
 
 
 
-	<nav id="navcontainer" class="container-fluid" ng-if='ctrl.loggedInUsername !== null'>
-		<h2 id="locationsheader">World Locations</h2>
+	<nav id="navcontainer" class="" ng-if='ctrl.loggedInUsername !== null'>
+		<h2 id="locationsheader">World Explorer</h2>
 		<button ng-if='ctrl.includePath === "partials/display.html" || ctrl.includePath ==="partials/show.html"' type="button" ng-click="ctrl.changeInclude('new')" class="btn btn-light">+ Add Location</button>
-		<div class="navUserInfo">
-			<p class = "loggedin" ng-if="ctrl.loggedInUsername">
-			       Welcome, {{ctrl.loggedInUsername}}!
-						 <br/><p>
-			<span ng-include="'partials/logoutbutton.html'"></span>			</p>
+		<div class="navUserInfo" ng-if="ctrl.loggedInUsername">
+			<p > Welcome, {{ctrl.loggedInUsername}}!</p>
+			<p><span ng-include="'partials/logoutbutton.html'"></span></p>
 		</div>
 	</nav>
 
 	<div ng-if='ctrl.loggedInUsername === null' class="banner">
 		<div class="container-h1">
-			<h1>World Locations</h1>
+			<h1>World Explorer</h1>
 		</div>
 		<div class="container-button">
 			<button type="button" class="btn btn-primary btn-lg" id="myBtn" data-toggle="modal" data-target="#Modal">Sign Up</button>

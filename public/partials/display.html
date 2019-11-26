@@ -1,26 +1,20 @@
     <div class="displayWrapper">
-        <label>Sort/Filter:</label>
-        <!-- <div class="sortNotLoggedIn"ng-if="ctrl.loggedInUsername === null">
-            <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortNotLoggedIn'>
-            </select>
-        </div> -->
-        <div class="sortLoggedIn" >
-            <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortLoggedIn'>
+
+      <div class="organizesort">
+        <div class="sortLoggedIn d-flex flex-column mx-5 align-items-center" >
+            <label class='organizeLabel'>Sort By:</label>
+            <select  ng-model='ctrl.sort' ng-options='option.label for option in ctrl.sortLoggedIn' id="sortbutton">
             </select>
         </div>
-        <!-- <select class="sort"  >
-
-            <option ng-value="['-createdAt','']" >Most Recent</option>
-            <option ng-value="['name','']"selected>A-Z</option>
-            <option ng-value="['-likes','']">Most Popular</option>
-            <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',ctrl.loggedInUsername]">Submitted By {{ctrl.loggedInUsername}}</option>
-            <option ng-if="ctrl.loggedInUsername!==null" ng-value="['-createdAt',{{location.likedAndLoved.loved}}]">Submitted By {{ctrl.loggedInUsername}}</option>
+        <div class="search d-flex flex-column mx-5 align-items-center">
+            <label class='organizeLabel'>Search:</label>
+            <input type="text" ng-model="search" placeholder="Search" class="search">
+        </div>
+      </div>
 
 
-        </select> -->
-        <h2>{{ctrl.selected[1]}}</h2>
         <div class="displayContainer">
-            <div ng-repeat ="location in ctrl.location | orderBy:ctrl.sort.value | filter: (ctrl.sort.filter === 'user'? {'user1': ctrl.loggedInUsername}: (ctrl.sort.filter === 'favorites'? {'likedAndLoved': {'username': ctrl.loggedInUsername, 'loved': true} }:''))" ng-click="ctrl.changeInclude('show');ctrl.showOne(location._id)" class="displayItem" >
+            <div ng-repeat ="location in ctrl.location | orderBy:ctrl.sort.value | filter: (ctrl.sort.filter === 'user'? {'user1': ctrl.loggedInUsername}: (ctrl.sort.filter === 'favorites'? {'likedAndLoved': {'username': ctrl.loggedInUsername, 'loved': true} }:'')) | filter: search" ng-click="ctrl.changeInclude('show');ctrl.showOne(location._id)" class="displayItem" >
 
                 <img  class="displayImg" ng-src="{{location.image}}" alt="">
 

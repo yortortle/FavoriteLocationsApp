@@ -1,8 +1,10 @@
 body{
   font-family: sans-serif;
-  background-image: url('imgs/backgroundTravel.png');
-  background-size: contain;
-  background-repeat: repeat;
+  /* background-image: url('imgs/backgroundTravel.png'); */
+  background-image: url('imgs/spacepaper.jpg');
+  /* background-color: gray; */
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: rgba(223,213,174,.7);
 }
 
@@ -11,21 +13,23 @@ body{
 }
 
 select{
-    width: 100px;
-    height:40px;
+    width: 120px;
+    height:27px;
 }
 
 /*====================
 === nav bar
 ======================*/
 nav{
-    background-color: #253529;
+    /* background-color: #253529; */
+    background-color: rgba(0, 0, 0, 0.5);
     min-height: 120px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    padding: 0 40px;
     /* background-color: black; */
 }
 
@@ -41,15 +45,12 @@ nav{
     background-color: white;
 }
 
-#navcontainer > h2, a, span{
-  color: white;
+#navcontainer  h2{
+    font-family: 'Righteous', cursive;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 20px;
 }
-
-#navcontainer > h2{
-  margin-bottom: 20px;
-}
-
-
 
 /*====================
 ===video for banner
@@ -102,6 +103,8 @@ video {
     justify-content: center;
     height: 100px;
     font-size: 12px;
+    font-family: 'Righteous', cursive;
+    margin: 10px 0 20px; text-transform: uppercase; text-shadow: 2px 2px 0 #000, margin: 10px 0 24px;
 }
 
 /*================
@@ -136,7 +139,8 @@ h2 {
     flex-direction:column;
     background-color: rgba(171,116,167,.5);
     border-radius: 10px;
-    padding: 15px;
+    padding: 40px;
+    margin: 30px 10px 30px 10px;
 }
 
 .displayContainer{
@@ -148,8 +152,8 @@ h2 {
 
 .displayItem {
     position:relative;
-    width:260px;
-    height: 150px;
+    width:240px;
+    height: 130px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -217,6 +221,9 @@ h2 {
     background-repeat:no-repeat;
     background-position: right;
     max-width: 800px;
+    background-color: rgb(224,255,251);
+    padding:30px 0;
+    border-radius: 10px;
 }
 
 
@@ -238,6 +245,9 @@ h2 {
     background-repeat:no-repeat;
     background-position:right bottom;
     background-size: auto;
+    background-color: rgb(224,255,251);
+    padding:30px 0;
+    border-radius: 10px;
 }
 
 .editFormContainer input, .editFormContainer textarea{
@@ -254,11 +264,14 @@ h2 {
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    /* padding: 100px; */
+    margin: 20px;
 
 }
 
 .locationImg{
-    width:70%;
+    max-width:70%;
+    height:300px;
     border-radius: 10px;
 }
 .showDescription{
@@ -275,7 +288,8 @@ h2 {
 
 footer{
   /* background-color: #6F8C5F; */
-  background-color: #253529;
+  /* background-color: #253529; */
+  background-color: rgba(0, 0, 0, 0.5);
   /* border-radius: 1; */
   margin-top: 50px;
   color: white;
@@ -321,6 +335,33 @@ footer{
   }
 ///////////////////////////////////////////
 
+/* sort/filter styling */
+
+#sortbutton{
+  width: 150px;
+  height: 25px;
+}
+
+.organizeLabel{
+    font-size: 20px;
+    color:white;
+    letter-spacing: 2px;
+}
+
+.organizesort{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: center; */
+}
+
+/* final styling */
+#testarea{
+  width: 500px;
+  padding: 30px;
+  /* margin: 20px; */
+}
 
 
 
